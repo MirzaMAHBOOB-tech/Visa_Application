@@ -1,0 +1,87 @@
+<div
+  style="background-image: url('assets/touristImages/netherland2.png');
+         background-size: cover;
+         height: 100vh;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-family: Arial, sans-serif;"
+>
+  <div
+    style="display: flex; justify-content: center; gap: 30px; padding: 40px;
+           width: 100%; max-width: 1100px;"
+  >
+
+    <!-- UNREAD MESSAGES -->
+    <div
+      style="flex: 1; max-width: 500px; padding: 30px; border-radius: 12px;
+             background: #f5f5f5; box-shadow: 0 4px 10px rgb(245, 5, 5);
+             text-align: center; transition: all 0.3s;"
+      onmouseover="this.style.background='linear-gradient(135deg, #002b76, #0074f0)'; this.style.color='#fff';"
+      onmouseout="this.style.background='#f5f5f5'; this.style.color='#000';"
+    >
+      <h3 style="margin-bottom: 15px;">Unread Messages</h3>
+
+      <div style="max-height: 60vh; overflow-y: auto;">
+        <div
+          *ngFor="let msg of unreadMessages"
+          style="background-color: gray; color: black; padding: 15px;
+                 margin: 10px 0; border-radius: 8px;"
+        >
+          <strong>{{ msg.firstname }} {{ msg.lastname }}</strong> ({{ msg.email }})
+          <p>{{ msg.message }}</p>
+          <p style="font-size: 12px; background-color: azure; color: gray; margin-bottom: 8px;">
+            {{ msg.createdAt | date: 'short' }}
+          </p>
+
+          <i (click)="markAsRead(msg._id)" class="fas fa-book"
+             style="color: #007bff; font-size: 24px; cursor: pointer;
+                    padding: 10px; border-radius: 50%; transition: 0.3s;"
+             onmouseover="this.style.background='#e6f0ff'"
+             onmouseout="this.style.background='transparent'">
+          </i>
+
+          <i (click)="deleteMessage(msg._id)" class="fas fa-trash"
+             style="color: red; font-size: 24px; cursor: pointer;
+                    padding: 10px; border-radius: 50%; transition: 0.3s;"
+             onmouseover="this.style.background='#ffe6e6'"
+             onmouseout="this.style.background='transparent'">
+          </i>
+        </div>
+      </div>
+    </div>
+
+    <!-- READ MESSAGES -->
+    <div
+      style="flex: 1; max-width: 500px; padding: 30px; border-radius: 12px;
+             background: #f5f5f5; box-shadow: 0 4px 10px rgb(28, 244, 4);
+             text-align: center; transition: all 0.3s;"
+      onmouseover="this.style.background='linear-gradient(135deg, #002b76, #0074f0)'; this.style.color='#fff';"
+      onmouseout="this.style.background='#f5f5f5'; this.style.color='#000';"
+    >
+      <h3 style="margin-bottom: 15px;">Read Messages</h3>
+
+      <div style="max-height: 60vh; overflow-y: auto;">
+        <div
+          *ngFor="let msg of readMessages"
+          style="background-color: rgb(47, 200, 47); color: black; padding: 15px;
+                 margin: 10px 0; border-radius: 8px;"
+        >
+          <strong>{{ msg.firstname }} {{ msg.lastname }}</strong> ({{ msg.email }})
+          <p>{{ msg.message }}</p>
+          <p style="font-size: 12px; background-color: azure; color: gray; margin-bottom: 8px;">
+            {{ msg.createdAt | date: 'short' }}
+          </p>
+
+          <i (click)="deleteMessage(msg._id)" class="fas fa-trash"
+             style="color: red; font-size: 24px; cursor: pointer;
+                    padding: 10px; border-radius: 50%; transition: 0.3s;"
+             onmouseover="this.style.background='#ffe6e6'"
+             onmouseout="this.style.background='transparent'">
+          </i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

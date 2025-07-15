@@ -1,0 +1,45 @@
+<div
+  style="width: 100%; max-width: 1500px; height: 600px; margin: auto; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+  
+  <video
+    src="assets/mediavideo.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: block;">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 50px; justify-content: center;">
+  <div *ngFor="let media of mediaList"
+    style="width: 300px; border: 1px solid #ccc; padding: 10px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+
+    <!-- Display Image or Video -->
+    <ng-container *ngIf="media.filetype.startsWith('image'); else videoBlock">
+      <img [src]="'http://localhost:3000/' + media.filepath"
+        style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;" />
+    </ng-container>
+
+    <ng-template #videoBlock>
+      <video controls [src]="'http://localhost:3000/' + media.filepath"
+        style="width: 100%; height: 200px; border-radius: 8px;"></video>
+    </ng-template>
+
+    <!-- Message -->
+    <p style="margin: 10px 0; font-weight: 500;">{{ media.message }}</p>
+
+    <!-- Date and Delete Button -->
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-size: 13px; color: #666;">{{ media.createdAt | date: 'short' }}</span>
+
+      <button *ngIf="isAdmin"
+        (click)="deleteMedia(media._id)"
+        style="background: red; color: white; border: none; padding: 6px 10px; border-radius: 5px; font-size: 13px; cursor: pointer;">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

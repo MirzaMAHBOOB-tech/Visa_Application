@@ -1,0 +1,44 @@
+<div style="background-image: url('assets/contact.png'); background-size: cover; height: 90vh;">
+  <div>
+    <div style="max-width: 600px; margin: auto; margin-bottom: 100px; padding: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 12px; background: #f9f9f9;">
+      <h2 style="text-align: center; margin-bottom: 40px; margin-top: 40px; color: #002b76;">Contact Us</h2>
+
+      <!-- Success & Error Message -->
+      <div *ngIf="successMessage" style="color: green; text-align: center; margin-bottom: 10px;">
+        {{ successMessage }}
+      </div>
+      <div *ngIf="errorMessage" style="color: red; text-align: center; margin-bottom: 10px;">
+        {{ errorMessage }}
+      </div>
+
+      <form (ngSubmit)="submitContact(contactForm)" #contactForm="ngForm">
+        <div style="margin-bottom: 15px;">
+          <input type="text" name="firstname" [(ngModel)]="contact.firstname" required
+                 placeholder="First Name" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <input type="text" name="lastname" [(ngModel)]="contact.lastname" required
+                 placeholder="Last Name" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <input type="email" name="email" [(ngModel)]="contact.email" required
+                 placeholder="Email Address" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"
+                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <textarea name="message" [(ngModel)]="contact.message" rows="4" required
+                    placeholder="Your Message" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"></textarea>
+        </div>
+
+        <button type="submit"
+                style="width: 100%; background: #002b76; color: white; padding: 10px; border: none; border-radius: 8px; font-weight: bold;">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

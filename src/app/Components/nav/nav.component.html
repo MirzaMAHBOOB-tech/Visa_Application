@@ -1,0 +1,65 @@
+<!-- navbar.component.html -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid mx-3" style="margin-left: 10px; margin-right: 10px;">
+    <a class="navbar-brand" routerLink="/">
+  <img src="assets/logo.png" alt="Logo" style="height: 90px;" />
+</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link hide" routerLink="/media-display">Media</a>
+        </li>
+       
+         <!-- <li class="nav-item">
+          <a class="nav-link hide" routerLink="/messages">Messages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/media-upload">Uploading</a>
+        </li> -->
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tourist Countries
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" routerLink="/germany">Germany</a></li>
+            <li><a class="dropdown-item" routerLink="/netherlands">Netherland</a></li>
+            <li><a class="dropdown-item" routerLink="/greece">Greece</a></li>
+            <li><a class="dropdown-item" routerLink="/australia">Australia</a></li>
+            <li><a class="dropdown-item" routerLink="/france">France</a></li>
+            <li><a class="dropdown-item" routerLink="/usa">USA</a></li>
+            <li><a class="dropdown-item" routerLink="/italy">Italy</a></li>
+            <li><a class="dropdown-item" routerLink="/canada">Canada</a></li>
+            <li><a class="dropdown-item" routerLink="/switzerland">Switzerland</a></li>
+          </ul>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" routerLink="/about-us">About US</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact-us">Contact Us</a>
+        </li>
+         <li class="nav-item dropdown" *ngIf="authService.isAdmin()">
+  <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown">
+    <img src="assets/Loginshow.jpg" style="height: 40px; width: 40px; border-radius: 50%;" alt="Admin" />
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+    <li><a class="dropdown-item" routerLink="/messages">Messages</a></li>
+    <li><a class="dropdown-item" routerLink="/media-upload">Upload</a></li>
+    <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+  </ul>
+</li>
+      </ul>
+    </div>
+  </div>
+</nav>

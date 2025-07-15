@@ -1,0 +1,22 @@
+.carousel-track {
+  display: flex;
+  gap: 15px;
+  animation: scrollLeft 30s linear infinite;
+  width: max-content;
+}
+
+.carousel-img {
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,20 @@
+<div style="padding: 50px 20px; max-width: 900px; margin: auto; font-family: 'Segoe UI', sans-serif;">
+  <h2 style="text-align: center; color: #002b76; margin-bottom: 40px;">Frequently Asked Questions</h2>
+
+  <div *ngFor="let faq of faqs; let i = index"
+       (click)="toggleFAQ(i)"
+       style="cursor: pointer; background: #f9f9f9; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s;"
+       onmouseover="this.style.transform='scale(1.02)'"
+       onmouseout="this.style.transform='scale(1)'"
+  >
+    <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+      <h4 style="margin: 0; color: #002b76;">{{ faq.question }}</h4>
+      <span style="font-size: 20px; font-weight: bold; color: #007bff;">{{ faq.isOpen ? '-' : '+' }}</span>
+    </div>
+
+    <div *ngIf="faq.isOpen" style="padding: 0 20px 20px 20px; color: #444; line-height: 1.6;">
+      {{ faq.answer }}
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

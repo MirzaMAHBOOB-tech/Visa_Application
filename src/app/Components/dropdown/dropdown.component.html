@@ -1,0 +1,14 @@
+<div ngbDropdown class="d-inline-block">
+	<button type="button" class="btn btn-outline-primary" id="dropdown1" ngbDropdownToggle>Toggle dropdown</button>
+	<div ngbDropdownMenu aria-labelledby="dropdown1">
+		<!-- items as buttons -->
+		<button ngbDropdownItem>Button (enabled)</button>
+		<button ngbDropdownItem [disabled]="true">Button (disabled, not focusable)</button>
+		<button ngbDropdownItem [class.disabled]="true" aria-disabled="true">Button (disabled, focusable)</button>
+
+		<!-- items as links -->
+		<a href="germany" ngbDropdownItem>germany</a>
+		<a href="#" ngbDropdownItem >Link (disabled, not focusable)</a>
+		<a href="#" ngbDropdownItem [class.disabled]="true" aria-disabled="true">Link (disabled, focusable)</a>
+	</div>
+</div>

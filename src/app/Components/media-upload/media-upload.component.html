@@ -1,0 +1,19 @@
+<div style="padding: 40px; max-width: 600px; margin: auto; background: #f9f9f9; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); font-family: 'Segoe UI', sans-serif;">
+  <h2 style="text-align: center; color: #002b76; margin-bottom: 30px;">Upload Media with Message</h2>
+
+  <div *ngIf="successMessage" style="color: green; text-align: center; margin-bottom: 15px;">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" style="color: red; text-align: center; margin-bottom: 15px;">{{ errorMessage }}</div>
+
+  <input type="file" (change)="onFileChange($event)"
+    style="width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 8px;" />
+
+  <textarea [(ngModel)]="message" placeholder="Enter your message here..." rows="4"
+    style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; resize: none; margin-bottom: 20px;"></textarea>
+
+  <button (click)="upload()"
+    style="width: 100%; background: #002b76; color: white; padding: 12px; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; transition: 0.3s;"
+    onmouseover="this.style.background='#0056b3'"
+    onmouseout="this.style.background='#002b76'">
+    Upload
+  </button>
+</div>
